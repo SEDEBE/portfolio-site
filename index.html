@@ -21,6 +21,20 @@
     <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- Tells search engines who this page is about, and links the profiles that are the same person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alejandro Córdoba",
+        "jobTitle": "Desarrollador backend Python/Django",
+        "url": "%VITE_SITE_URL%/",
+        "image": "%VITE_SITE_URL%/img/portrait.webp",
+        "sameAs": ["%VITE_LINKEDIN_URL%", "https://github.com/SEDEBE"],
+        "knowsAbout": ["Python", "Django", "Django REST Framework", "PostgreSQL", "Docker", "React"]
+      }
+    </script>
+
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body data-api="%VITE_API_URL%" data-app="%VITE_EXPENSES_URL%">

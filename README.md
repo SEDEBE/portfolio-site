@@ -14,7 +14,7 @@ and changes to the project's own screens as you scroll.
   is down or rate-limited, it shows a sample response and says so.
 - **The stage follows the reading.** Projects bring a short screen recording of the app, the
   experience section the phone view; hovering a project previews its screen.
-- **One-click demo.** Links go to `/demo` on the app, which opens a dashboard with sample data.
+- **The app opens on its login page**, where visitors register, log in or enter the demo account.
 - **Contact without a backend.** The single field opens the visitor's email with the message
   already written.
 

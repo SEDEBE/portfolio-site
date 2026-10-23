@@ -39,18 +39,34 @@ const show = (state: string) => {
   else video.pause()
 }
 
-const sections = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        sectionState = (entry.target as HTMLElement).dataset.stage ?? 'console'
-        show(sectionState)
-      }
+// The section whose heading has passed 45% of the screen takes the stage. Headings, not section boxes:
+// a section's top padding would claim the stage while its title is still far down the screen.
+const staged = [...document.querySelectorAll<HTMLElement>('[data-stage]')]
+let ticking = false
+const pickStage = () => {
+  ticking = false
+  let state = 'console'
+  for (const section of staged) {
+    const marker = section.querySelector('h1, h2') ?? section
+    if (marker.getBoundingClientRect().top <= window.innerHeight * 0.45) state = section.dataset.stage ?? state
+  }
+  if (state !== sectionState) {
+    sectionState = state
+    show(state)
+  }
+}
+window.addEventListener(
+  'scroll',
+  () => {
+    if (!ticking) {
+      ticking = true
+      requestAnimationFrame(pickStage)
     }
   },
-  { rootMargin: '-45% 0px -45% 0px' },
+  { passive: true },
 )
-document.querySelectorAll('[data-stage]').forEach((section) => sections.observe(section))
+// The page opens on the console (the HTML's state); scrolling, including a restored scroll position,
+// moves the stage on. Measuring on load is unreliable while fonts and styles are still settling.
 
 for (const row of document.querySelectorAll<HTMLElement>('[data-preview]')) {
   const preview = () => show(row.dataset.preview ?? sectionState)

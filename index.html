@@ -36,8 +36,15 @@
       </nav>
     </header>
 
-    <!-- The split: the stage on the left never moves while the reading column scrolls past it. -->
-    <div class="split">
+    <!-- The split: the stage on the left never moves while the reading column scrolls past it.
+         On a phone it is one column: the name first, then the live console, then the rest. -->
+    <main id="contenido" class="split">
+      <section class="hero" data-stage="console" aria-labelledby="titulo">
+        <h1 id="titulo" class="wordmark">Alejandro Córdoba</h1>
+        <p class="hero-lead" data-reveal>
+          Desarrollo backends con Python y Django, y los dejo funcionando en el servidor.
+        </p>
+      </section>
       <aside class="stage-wrap" aria-label="El proyecto en directo">
         <div class="stage" id="stage" data-state="console">
           <!-- State 1: the project's real API, answering on the page -->
@@ -82,13 +89,6 @@
       </aside>
 
       <div class="reading">
-        <main id="contenido">
-          <section class="hero" data-stage="console" aria-labelledby="titulo">
-            <h1 id="titulo" class="wordmark">Alejandro Córdoba</h1>
-            <p class="hero-lead" data-reveal>
-              Desarrollo backends con Python y Django, y los dejo funcionando en el servidor.
-            </p>
-          </section>
 
           <section id="proyectos" class="block" data-stage="dashboard" aria-labelledby="proyectos-titulo">
             <h2 id="proyectos-titulo" class="heading" data-reveal>Proyectos</h2>
@@ -189,9 +189,8 @@
               <a class="text-link" href="/cv-alejandro-cordoba.pdf" download>Descargar el CV en PDF</a>
             </p>
           </section>
-        </main>
       </div>
-    </div>
+    </main>
 
     <!-- Full width: a letter, then one field to write to me -->
     <section id="sobre-mi" class="letter" aria-labelledby="sobre-mi-titulo">

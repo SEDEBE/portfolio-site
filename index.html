@@ -3,35 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alejandro Córdoba · Desarrollador backend Python/Django</title>
+    <title>Alejandro Córdoba · Desarrollador backend Python y Django en Córdoba</title>
     <meta
       name="description"
-      content="Alejandro Córdoba, desarrollador backend con Python y Django. Mira su API respondiendo en directo y prueba su gestor de gastos sin registrarte."
+      content="Desarrollador backend Python y Django en Córdoba (presencial) y en remoto para toda España. APIs con Django REST Framework, Docker y CI/CD: prueba su proyecto en directo."
     />
+    <meta name="author" content="Alejandro Córdoba" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#0e1013" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="%VITE_SITE_URL%/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Connect early to the two other origins the page talks to: the API console and the stats. -->
+    <link rel="preconnect" href="%VITE_EXPENSES_URL%" crossorigin />
+    <link rel="preconnect" href="%VITE_UMAMI_URL%" />
 
     <!-- Link previews (LinkedIn, WhatsApp, Slack...) -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Alejandro Córdoba" />
     <meta property="og:url" content="%VITE_SITE_URL%/" />
-    <meta property="og:title" content="Alejandro Córdoba · Desarrollador backend Python/Django" />
-    <meta property="og:description" content="APIs con Django que funcionan también en el servidor. Prueba su proyecto en directo." />
+    <meta property="og:title" content="Alejandro Córdoba · Desarrollador backend Python y Django" />
+    <meta property="og:description" content="Córdoba y remoto. APIs con Django que funcionan también en el servidor: prueba su proyecto en directo." />
     <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alejandro Córdoba, desarrollador backend Python y Django" />
+    <meta property="profile:first_name" content="Alejandro" />
+    <meta property="profile:last_name" content="Córdoba" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alejandro Córdoba · Desarrollador backend Python y Django" />
+    <meta name="twitter:description" content="Córdoba y remoto. Prueba su proyecto en directo." />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.png" />
 
-    <!-- Tells search engines who this page is about, and links the profiles that are the same person -->
+    <!-- Structured data: who this page is about, where he works and what he built, for search engines -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Alejandro Córdoba",
-        "jobTitle": "Desarrollador backend Python/Django",
-        "url": "%VITE_SITE_URL%/",
-        "image": "%VITE_SITE_URL%/img/portrait.webp",
-        "sameAs": ["%VITE_LINKEDIN_URL%", "https://github.com/SEDEBE"],
-        "knowsAbout": ["Python", "Django", "Django REST Framework", "PostgreSQL", "Docker", "React"]
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "%VITE_SITE_URL%/#website",
+            "url": "%VITE_SITE_URL%/",
+            "name": "Alejandro Córdoba",
+            "inLanguage": "es-ES",
+            "publisher": { "@id": "%VITE_SITE_URL%/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "%VITE_SITE_URL%/#profile",
+            "url": "%VITE_SITE_URL%/",
+            "name": "Alejandro Córdoba · Desarrollador backend Python y Django en Córdoba",
+            "inLanguage": "es-ES",
+            "isPartOf": { "@id": "%VITE_SITE_URL%/#website" },
+            "dateModified": "2026-10-23",
+            "mainEntity": { "@id": "%VITE_SITE_URL%/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "%VITE_SITE_URL%/#person",
+            "name": "Alejandro Córdoba",
+            "givenName": "Alejandro",
+            "familyName": "Córdoba",
+            "jobTitle": "Desarrollador backend Python y Django",
+            "description": "Desarrollador backend con Python y Django. Presencial en Córdoba y alrededores, en remoto para cualquier lugar.",
+            "url": "%VITE_SITE_URL%/",
+            "image": "%VITE_SITE_URL%/img/alejandro-cordoba.jpg",
+            "email": "mailto:alejandrocordoba28@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Córdoba",
+              "addressRegion": "Andalucía",
+              "addressCountry": "ES"
+            },
+            "homeLocation": { "@type": "City", "name": "Córdoba, España" },
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Desarrollador backend",
+              "occupationLocation": [
+                { "@type": "City", "name": "Córdoba" },
+                { "@type": "Country", "name": "España" }
+              ],
+              "skills": "Python, Django, Django REST Framework, PostgreSQL, Celery, Redis, Docker, GitHub Actions, React, TypeScript"
+            },
+            "alumniOf": { "@type": "EducationalOrganization", "name": "CES Lope de Vega" },
+            "knowsLanguage": ["es", "en"],
+            "knowsAbout": [
+              "Python", "Django", "Django REST Framework", "APIs REST", "PostgreSQL", "Celery", "Redis",
+              "Docker", "Docker Compose", "Linux", "Nginx", "Caddy", "GitHub Actions", "CI/CD",
+              "React", "TypeScript", "Java", "Spring Boot", "Odoo"
+            ],
+            "sameAs": ["%VITE_LINKEDIN_URL%", "https://github.com/SEDEBE"]
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "%VITE_EXPENSES_URL%/#app",
+            "name": "Gastos, gestor de gastos personales",
+            "url": "%VITE_EXPENSES_URL%/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "es-ES",
+            "description": "Registra gastos por categoría, pon presupuestos con avisos por email y apunta gastos fijos automáticamente. API en Django REST Framework y frontend en React.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+            "author": { "@id": "%VITE_SITE_URL%/#person" }
+          }
+        ]
       }
     </script>
 
@@ -58,6 +137,7 @@
         <p class="hero-lead" data-reveal>
           Desarrollo backends con Python y Django, y los dejo funcionando en el servidor.
         </p>
+        <p class="hero-place" data-reveal>Córdoba (España) · presencial en Córdoba y alrededores, en remoto para cualquier lugar</p>
       </section>
       <aside class="stage-wrap" aria-label="El proyecto en directo">
         <div class="stage" id="stage" data-state="console">
@@ -209,14 +289,14 @@
     <!-- Full width: a letter, then one field to write to me -->
     <section id="sobre-mi" class="letter" aria-labelledby="sobre-mi-titulo">
       <div class="letter-col">
-        <img class="portrait" src="/img/portrait.webp" width="96" height="96" alt="Alejandro Córdoba" loading="lazy" data-reveal />
+        <img class="portrait" src="/img/portrait.webp" width="96" height="96" alt="Alejandro Córdoba, desarrollador backend Python y Django" loading="lazy" data-reveal />
         <h2 id="sobre-mi-titulo" class="heading" data-reveal>Sobre mí</h2>
         <div class="letter-body" data-reveal>
-          <p>Empecé por los sistemas. En el ciclo de ASIR aprendí a montar servidores, redes y copias de seguridad antes de escribir mi primera API.</p>
+          <p>Soy de Córdoba y empecé por los sistemas. En el ciclo de ASIR aprendí a montar servidores, redes y copias de seguridad antes de escribir mi primera API.</p>
           <p>En Smalldev instalé y protegí Odoo con Docker, Nginx y Fail2ban, y escribí mi primer módulo en Python. Ahí entendí que el código y el servidor son el mismo trabajo.</p>
           <p>Después estudié DAM y entré en TangramBPM como desarrollador Django. Al acabar las prácticas me ofrecieron un contrato.</p>
           <p>Ahora hago proyectos completos y públicos, con tests, integración continua y despliegue automático, para que se vea cómo trabajo y no solo se lea. Me importa que lo que hago <mark>funcione también en el servidor</mark>.</p>
-          <p>Busco un equipo backend o full stack donde seguir aprendiendo.</p>
+          <p>Busco un equipo backend o full stack, en Córdoba o en remoto, donde seguir aprendiendo.</p>
         </div>
         <p class="signature" data-reveal>Alejandro Córdoba</p>
         <p class="signature-role" data-reveal>Desarrollador backend</p>
@@ -239,6 +319,7 @@
         <p class="contact-note" data-reveal>Se abrirá tu correo con el mensaje listo para enviar.</p>
         <dl class="facts contact-rows" data-reveal>
           <div><dt>Correo</dt><dd><a href="mailto:alejandrocordoba28@gmail.com">alejandrocordoba28@gmail.com</a></dd></div>
+          <div><dt>Dónde</dt><dd>Córdoba y alrededores en presencial; remoto desde cualquier lugar</dd></div>
           <div><dt>LinkedIn</dt><dd><a href="%VITE_LINKEDIN_URL%">alejandro-cordoba-95576a1b7</a></dd></div>
           <div><dt>GitHub</dt><dd><a href="https://github.com/SEDEBE">SEDEBE</a></dd></div>
         </dl>

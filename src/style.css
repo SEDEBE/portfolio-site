@@ -636,85 +636,36 @@
     color: var(--accent);
   }
 
-  /* ---- Footer: photograph half, menu half ---- */
+  /* ---- Footer: the menu and one line, nothing repeated from above ---- */
   .footer {
-    display: grid;
-  }
-  @media (min-width: 1024px) {
-    .footer {
-      grid-template-columns: 1fr 1fr;
-      min-height: 90svh;
-    }
-  }
-  .footer-photo {
-    overflow: hidden;
-  }
-  .footer-photo img {
-    width: 100%;
-    height: auto;
-  }
-  @media (min-width: 1024px) {
-    .footer-photo img {
-      height: 100%;
-      object-fit: cover;
-      object-position: left top;
-    }
-  }
-  .footer-menu {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
     padding: 48px var(--margin) var(--margin);
   }
   @media (min-width: 1024px) {
-    .footer-menu {
-      padding: 80px var(--margin) var(--margin) 8%;
+    .footer {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 64px var(--margin) 48px;
     }
   }
-  .footer-mark {
+  .footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
     font-size: 17px;
+  }
+  .footer nav a {
     color: var(--soft);
-  }
-  .footer-menu nav {
-    display: grid;
-    gap: 12px;
-    justify-items: start;
-  }
-  .footer-menu nav a {
-    font-size: 24px;
-    font-weight: 600;
     text-decoration: none;
-    transition: transform 200ms ease, color 200ms ease;
+    transition: color 160ms ease;
   }
-  @media (min-width: 1024px) {
-    .footer-menu nav a {
-      font-size: 36px;
-    }
-  }
-  .footer-menu nav:hover a:not(:hover) {
-    color: var(--soft);
-  }
-  .footer-menu nav a:hover {
-    transform: translateX(12px);
-  }
-  .footer-blocks {
-    display: grid;
-    gap: 16px;
-    font-size: 15px;
-  }
-  @media (min-width: 640px) {
-    .footer-blocks {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  .footer-blocks a {
-    text-decoration: none;
-  }
-  .footer-blocks a:hover {
-    color: var(--accent);
+  .footer nav a:hover {
+    color: var(--ink);
   }
   .footer-legal {
-    margin-top: auto;
     font-size: 13px;
     color: var(--soft);
   }

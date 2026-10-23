@@ -30,12 +30,14 @@ const stage = document.querySelector<HTMLElement>('#stage')
 let sectionState = 'console'
 const video = document.querySelector<HTMLVideoElement>('.stage-video')
 const calm = window.matchMedia('(prefers-reduced-motion: reduce)')
+// Below this width the stage is only the console (see style.css): no recording to play.
+const wide = window.matchMedia('(min-width: 1024px)')
 const show = (state: string) => {
   if (!stage) return
   stage.dataset.state = state
   // The recording plays only while it is on stage, and never when the visitor asks for less motion.
   if (!video) return
-  if (state === 'dashboard' && !calm.matches) void video.play().catch(() => {})
+  if (state === 'dashboard' && wide.matches && !calm.matches) void video.play().catch(() => {})
   else video.pause()
 }
 
@@ -83,6 +85,15 @@ const json = document.querySelector<HTMLElement>('#console-json code')
 const status1 = document.querySelector<HTMLElement>('#console-status-1')
 const status2 = document.querySelector<HTMLElement>('#console-status-2')
 const note = document.querySelector<HTMLElement>('#console-note')
+// The sample answer is written one category per line, which is too wide for a phone: there it gets the
+// usual indented layout, the same one the live answer uses.
+if (json && !wide.matches) {
+  try {
+    json.textContent = JSON.stringify(JSON.parse(json.textContent ?? ''), null, 2)
+  } catch {
+    // Leave the sample as written.
+  }
+}
 
 async function timed(url: string, init?: RequestInit) {
   const start = performance.now()

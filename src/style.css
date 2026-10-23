@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/* Same design tokens as the Expense Tracker app, so both look like one portfolio. */
+:root {
+  color-scheme: light;
+  --c-page: #f6f7f9;
+  --c-surface: #ffffff;
+  --c-surface-2: #eef2f7;
+  --c-border: #e3e6eb;
+  --c-text: #0f1729;
+  --c-muted: #5b6474;
+  --c-accent: #2a78d6;
+  --c-accent-strong: #1c5cab;
+  --c-accent-soft: #e6f0fc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --c-page: #0d1117;
+    --c-surface: #161b22;
+    --c-surface-2: #1f2630;
+    --c-border: #2b333e;
+    --c-text: #e8ebf0;
+    --c-muted: #9aa4b2;
+    --c-accent: #3987e5;
+    --c-accent-strong: #6da7ec;
+    --c-accent-soft: #15263d;
+  }
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-page: var(--c-page);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-border: var(--c-border);
+  --color-text: var(--c-text);
+  --color-muted: var(--c-muted);
+  --color-accent: var(--c-accent);
+  --color-accent-strong: var(--c-accent-strong);
+  --color-accent-soft: var(--c-accent-soft);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Anchors don't hide under the sticky header. */
+  }
+  body {
+    @apply bg-page text-text font-sans antialiased;
+  }
+  a,
+  button {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex h-10 items-center justify-center gap-2 rounded-lg px-4 text-sm font-medium transition-colors;
+  }
+  .btn-lg {
+    @apply h-12 px-5 text-base;
+  }
+  .btn-primary {
+    @apply bg-accent text-white shadow-sm hover:bg-accent-strong;
+  }
+  .btn-secondary {
+    @apply border border-border bg-surface text-text hover:bg-surface-2;
+  }
+  .nav-link {
+    @apply rounded-lg px-3 py-2 text-muted hover:bg-surface-2 hover:text-text;
+  }
+  .card {
+    @apply rounded-2xl border border-border bg-surface p-6 shadow-sm;
+  }
+  .chip {
+    @apply rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent-strong;
+  }
+  .section {
+    @apply py-20 sm:py-24;
+  }
+  .section-title {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+  .section-subtitle {
+    @apply mt-3 text-lg text-muted;
+  }
+  /* Bullet with a check mark for the project highlights. */
+  .check {
+    @apply relative pl-7;
+  }
+  .check::before {
+    content: '';
+    @apply absolute top-0.5 left-0 size-5 rounded-full bg-accent-soft;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a78d6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  /* Dot on the experience timeline. */
+  .timeline-item {
+    @apply relative;
+  }
+  .timeline-item::before {
+    content: '';
+    /* Centered on the 1px line: padding + half the line + half the dot. */
+    @apply absolute top-1.5 -left-[1.906rem] size-3 rounded-full border-2 border-accent bg-page sm:-left-[2.406rem];
+  }
+  .hero-glow {
+    @apply pointer-events-none absolute inset-0;
+    background:
+      radial-gradient(45rem 28rem at 85% 0%, color-mix(in oklab, var(--c-accent) 16%, transparent), transparent);
+  }
+  /* Terminal-style card in the hero. */
+  .terminal {
+    @apply overflow-hidden rounded-2xl border border-border bg-[#0d1117] text-[13px] leading-relaxed text-[#c9d1d9] shadow-2xl;
+  }
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-surface focus:px-4 focus:py-2;
+  }
+}

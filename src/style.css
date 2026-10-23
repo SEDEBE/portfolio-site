@@ -10,7 +10,6 @@
 :root {
   color-scheme: dark;
   --ground: #0e1013;
-  --stage: #161a1f;
   --raised: #1d2229;
   --ink: #edf0f4;
   --soft: #a2abb8;
@@ -132,7 +131,6 @@
     min-height: 420px;
     overflow: hidden;
     border-radius: var(--radius);
-    background: var(--stage);
   }
   @media (min-width: 1024px) {
     .stage {
@@ -515,9 +513,6 @@
       padding: 160px var(--margin);
     }
   }
-  .letter {
-    background: var(--stage);
-  }
   .letter-col {
     max-width: 560px;
     margin: 0 auto;
@@ -610,7 +605,6 @@
   /* ---- Footer: photograph half, menu half ---- */
   .footer {
     display: grid;
-    background: var(--stage);
   }
   @media (min-width: 1024px) {
     .footer {

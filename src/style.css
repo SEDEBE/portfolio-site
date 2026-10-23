@@ -352,6 +352,10 @@
     line-height: 1.35;
     color: var(--soft);
   }
+  .hero-place {
+    font-size: 15px;
+    color: var(--soft);
+  }
   /* The name runs along the bottom and crosses into the stage, over its flat dark field. */
   .wordmark {
     position: relative;

@@ -26,6 +26,21 @@ section with its own composition. Checked with its real-browser inspector at 144
 Motion is one scroll-linked move on the name, staggered entrances and the recording on stage, all
 off under `prefers-reduced-motion`; content is visible without JavaScript.
 
+## SEO
+
+- **Search snippet**: title and description name the role and the place (Córdoba, presencial and
+  remote), `robots` allows large image previews, canonical URL, and Open Graph / Twitter cards for
+  link previews.
+- **Structured data** (JSON-LD `@graph`): `WebSite`, `ProfilePage` whose main entity is a `Person`
+  (job, location, skills, school, LinkedIn and GitHub as `sameAs`) and the `WebApplication` he built.
+- **Crawling**: `robots.txt`, `sitemap.xml` with the photo, a real `404` page, and Google Search
+  Console verified for the whole domain.
+- **IndexNow**: `public/38fa6537492b1f8b6980a3b3d5dfec75.txt` proves ownership; after a deploy, tell Bing and the other
+  IndexNow engines about the change with
+  `curl "https://api.indexnow.org/indexnow?url=https://alejandrocordoba.es/&key=38fa6537492b1f8b6980a3b3d5dfec75"`.
+- **Speed** (a ranking signal): static HTML, self-hosted font, WebP images, cache headers, and
+  preconnects to the API and statistics origins. Lighthouse: 97–100 performance, 100 SEO.
+
 ## Stack
 
 HTML, Tailwind CSS 4, a few lines of TypeScript, Vite, Docker (Nginx), GitHub Actions.

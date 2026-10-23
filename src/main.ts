@@ -142,3 +142,14 @@ document.querySelector<HTMLFormElement>('#contact-form')?.addEventListener('subm
   const subject = encodeURIComponent('Contacto desde tu portfolio')
   window.location.href = `mailto:alejandrocordoba28@gmail.com?subject=${subject}&body=${encodeURIComponent(message)}`
 })
+
+// ---- Visit statistics: self-hosted Umami, no cookies, so no consent banner ----
+const umamiUrl = import.meta.env.VITE_UMAMI_URL as string | undefined
+const umamiId = import.meta.env.VITE_UMAMI_WEBSITE_ID as string | undefined
+if (umamiUrl && umamiId) {
+  const script = document.createElement('script')
+  script.defer = true
+  script.src = `${umamiUrl}/script.js`
+  script.dataset.websiteId = umamiId
+  document.head.append(script)
+}

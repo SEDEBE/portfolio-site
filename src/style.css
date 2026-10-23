@@ -304,46 +304,36 @@
   }
 
   .hero {
-    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 48px;
-    padding: 48px 0 40px;
+    gap: 28px;
+    padding: 48px 0 24px;
   }
   @media (min-width: 1024px) {
     .hero {
-      min-height: calc(100svh - 80px);
-      padding: 0 0 40px;
-      justify-content: flex-end;
+      padding: 160px 0 24px;
     }
   }
   .hero-lead {
-    max-width: 22ch;
+    max-width: 24ch;
     font-size: 24px;
     line-height: 1.35;
-  }
-  @media (min-width: 1024px) {
-    .hero-lead {
-      position: absolute;
-      top: 38%;
-    }
+    color: var(--soft);
   }
   /* The name runs along the bottom and crosses into the stage, over its flat dark field. */
   .wordmark {
     position: relative;
     z-index: 2;
     font-size: clamp(34px, 9.4vw, 72px);
-    line-height: 0.95;
-    font-weight: 400;
-    letter-spacing: -0.04em;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.035em;
     white-space: nowrap;
+    transform-origin: left top;
   }
   @media (min-width: 1024px) {
     .wordmark {
-      font-size: clamp(72px, 6.3vw, 120px);
-      margin-left: calc(-1 * (clamp(40px, 5vw, 72px) + 9vw));
-      transform-origin: left bottom;
+      font-size: clamp(56px, 4.6vw, 88px);
     }
   }
   @supports (animation-timeline: scroll()) {
@@ -351,13 +341,13 @@
       .wordmark {
         animation: settle linear both;
         animation-timeline: scroll(root);
-        animation-range: 0 90svh;
+        animation-range: 0 60svh;
       }
     }
   }
   @keyframes settle {
     to {
-      scale: 0.93;
+      scale: 0.94;
     }
   }
 
@@ -405,13 +395,37 @@
   @media (min-width: 640px) {
     .ledger a,
     .ledger .ledger-row-static {
-      grid-template-columns: 55% minmax(0, 1fr) auto;
+      grid-template-columns: 42% minmax(0, 1fr) auto;
       align-items: baseline;
       min-height: 44px;
     }
   }
   .ledger-name {
     color: var(--ink);
+  }
+  .ledger a .ledger-name {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    transition: text-decoration-color 160ms ease;
+  }
+  .ledger a:hover .ledger-name,
+  .ledger a:focus-visible .ledger-name {
+    text-decoration-color: var(--accent);
+  }
+  .ledger-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    white-space: nowrap;
+    color: var(--accent);
+    font-weight: 500;
+    transition: gap 160ms ease;
+  }
+  .ledger a:hover .ledger-action {
+    gap: 9px;
   }
   .ledger-kind {
     grid-column: 1 / -1;
@@ -433,8 +447,15 @@
   .ledger:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) .ledger-name {
     color: var(--soft);
   }
-  .ledger a:hover {
-    transform: translateX(6px);
+  .ledger a {
+    border-radius: var(--radius);
+    margin: 0 -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .ledger a:hover,
+  .ledger a:focus-visible {
+    background: var(--raised);
   }
   .ledger-plain .ledger-row-static {
     grid-template-columns: minmax(0, 1fr) auto;
